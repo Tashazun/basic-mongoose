@@ -31,6 +31,7 @@ describe('E2E for Movies', () => {
             .send(test1)
             .then(({ body }) => {
                 assert.deepEqual(body, test1);
+                test1 = body;
             });
     });
 
