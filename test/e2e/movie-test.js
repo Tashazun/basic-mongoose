@@ -1,6 +1,6 @@
 const { assert } = require('chai');
 const request = require('./request');
-const Movie = require('../../lib/models/Movie');
+const Movie = require('../../lib/models/movie');
 const { dropCollection } = require('./db');
 
 describe('E2E for Movies', () => {

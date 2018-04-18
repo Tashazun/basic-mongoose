@@ -1,5 +1,5 @@
 const { assert } = require('chai');
-const Movie = require('../../lib/models/Movie');
+const Movie = require('../../lib/models/movie');
 
 describe('Unit Testing', () => {
     
