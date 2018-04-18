@@ -1,6 +1,6 @@
 const http = require('http');
-const app = require('../lib/app');
-const connect = require('../lib/connect');
+const app = require('./lib/app');
+const connect = require('./lib/connect');
 
 const PORT = process.env.PORT || 3000;
 
