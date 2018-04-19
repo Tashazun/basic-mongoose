@@ -11,5 +11,5 @@ connect(MONGODB_URI);
 const server = http.createServer(app);
 
 server.listen(PORT, () => {
-    console.log('What lies behind us and what lies before us are tiny matters compared to what lies within us.');
+    console.log('What lies behind us and what lies before us are tiny matters compared to what lies within us.', server.address().PORT);
 });

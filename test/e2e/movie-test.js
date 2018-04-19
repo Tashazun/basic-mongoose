@@ -43,7 +43,7 @@ describe('E2E for Movies', () => {
                 test2 = sent;
                 return request.get('/movies')
                     .then(({ body }) => {
-                        assert.deepEqual(body, test2);
+                        assert.deepEqual(body, { _id: test2._id, ...test2 });
                     });
             });
     });
