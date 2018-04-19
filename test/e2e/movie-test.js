@@ -56,4 +56,18 @@ describe('E2E for Movies', () => {
                 assert.deepEqual(body, [test1, test2].map(fields));
             });
     });
+
+    it('updates by id', () => {
+        test1.rating = 8;
+        
+        return request.put(`/movies/${test1._id}`)
+            .send(test1)
+            .then(({ body }) => {
+                console.log(body);
+                return Movie.findById(test1._id).then(comeback);
+            })
+            .then(updated => {
+                assert.deepEqual(updated, test1);
+            });
+    });
 });
