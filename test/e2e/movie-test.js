@@ -35,4 +35,17 @@ describe('E2E for Movies', () => {
             });
     });
 
+    const comeback = doc => JSON.parse(JSON.stringify(doc.toJSON()));
+
+    it('gets movie by assigned id', () => {
+        return Movie.create(test2).then(comeback)
+            .then(sent => {
+                test2 = sent;
+                return request.get('/movies')
+                    .then(({ body }) => {
+                        assert.deepEqual(body, test2);
+                    });
+            });
+    });
+
 });
