@@ -48,4 +48,12 @@ describe('E2E for Movies', () => {
             });
     });
 
+    const fields = ({ _id, director }) => ({ _id, director });
+
+    it('gets specific fields', () => {
+        return request.get('/movies')
+            .then(({ body }) => {
+                assert.deepEqual(body, [test1, test2].map(fields));
+            });
+    });
 });
