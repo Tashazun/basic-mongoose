@@ -70,4 +70,22 @@ describe('E2E for Movies', () => {
                 assert.deepEqual(updated, test1);
             });
     });
+
+    it('deletes by id', () => {
+        return request.delete(`/movies/${test2._id}`)
+            .then(() => {
+                return Movie.findByIdAndRemove(test2._id);
+            })
+            .then((deleted) => {
+                assert.isNull(deleted);
+            });
+    });
+
+    it('returns 404 if returning bad id', () => {
+        return request.get(`/movies/${test2._id}`)
+            .then(res => {
+                assert.equal(res.status, 404);
+                assert.include(res.body.error, test2._id, 'Movie is gone');
+            });
+    });
 });
