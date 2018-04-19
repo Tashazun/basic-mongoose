@@ -39,11 +39,11 @@ describe('E2E for Movies', () => {
 
     it('gets movie by assigned id', () => {
         return Movie.create(test2).then(comeback)
-            .then(sent => {
-                test2 = sent;
-                return request.get('/movies')
+            .then(save => {
+                test2 = save;
+                return request.get(`/movies/${test2._id}`)
                     .then(({ body }) => {
-                        assert.deepEqual(body, { _id: test2._id, ...test2 });
+                        assert.deepEqual(body, test2);
                     });
             });
     });
